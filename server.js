@@ -6,6 +6,9 @@ const { playlist } = require('./playlist.js')
 
 http.globalAgent.keepAlive = true
 
+if (!fs.existsSync(`${__dirname}/static/mp3`)) fs.mkdirSync(`${__dirname}/static/mp3`)
+if (!fs.existsSync(`${__dirname}/static/upload`)) fs.mkdirSync(`${__dirname}/static/upload`)
+
 const sendAlbums = (req, res) => {
   let allData = ''
   req.on('data', (data) => { allData += data })
@@ -13,7 +16,8 @@ const sendAlbums = (req, res) => {
     const finish = JSON.parse(allData)
 
     fs.readdir(`${__dirname}/static/mp3`, (err, dirs) => {
-      if (err) return console.log(err)
+      if (err) return console.error(err)
+      if (dirs.length === 0) return console.log('No albums to send')
 
       let album
       if (!finish.album) [album] = dirs
@@ -127,6 +131,9 @@ const server = http.createServer((req, res) => {
               })
               break
             }
+            case 'ico':
+              res.end()
+              break
             default:
               res.writeHead(200, { 'Content-Type': '' })
           }
