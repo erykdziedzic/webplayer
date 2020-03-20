@@ -1,0 +1,271 @@
+body, html {
+  background-color: #556B2F;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.menu {
+  height: 48px;
+  width: 100%;
+  background-color: #556B2F;
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1081px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .menu {
+    height: 100%;
+    width: 48px;
+  }
+}
+
+#playlist {
+  width: 48px;
+  height: 48px;
+  transition: 0.2s;
+}
+
+#playlist:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.albumsContainer {
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+@media only screen and (min-width: 1081px) {
+  .albumsContainer {
+    width: 280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+  }
+
+  .albumsContainer::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .albumsContainer::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  .albumsContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}
+
+.albumCover {
+  height: 256px;
+  width: 256px;
+}
+
+.title{
+  align-items: center;
+  color: #556B2F;
+  background-color: white;
+  display: flex;
+  font-size: 32px;
+  line-height: 7%;
+  height: 7%;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.songsList {
+  flex-direction: column;
+  height: calc(100vh - 96px - 256px - 48px);
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.song {
+  display: flex;
+  flex-direction: row;
+  height: 16%;
+  user-select: none;
+}
+
+.actionButton {
+  align-items: center;
+  background-color: grey;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-width: 144px;
+}
+
+.actionButton > div {
+  height: 100%;
+  width: 50%;
+  height: 72px;
+}
+
+.actionButton > div > img {
+  height: 72px;
+}
+
+.actionButton > div > div {
+  border-left: 1px solid white;
+  width: calc(100% - 1px);
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 72px;
+  color: white;
+}
+
+.albumTitle, .filename, .filesize {
+  align-items: center;
+  display: flex;
+  font-size: 200%;
+}
+
+@media only screen and (min-width: 1080px) {
+  .songsList {
+    flex-direction: column;
+    flex-grow: 1;
+    height: calc(100vh - 4px - 96px);
+    overflow-y: scroll;
+    width: auto;
+  }
+
+  .song {
+    flex-direction: row;
+  }
+
+  .albumTitle, .filename, .filesize {
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6vw;  
+  }
+}
+
+.albumTitle {
+  color: #444;
+  width: 60%;
+}
+
+.filename {
+  color: #556B2F;
+  width: 30%;
+}
+
+.filesize {
+  color: #444;
+  flex-grow: 1;
+  width: 10%;
+}
+
+.controlsTab {
+  display: flex;
+  height: 96px;
+  width: 100%;
+  -webkit-box-shadow: 0 0 8 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 0 8px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.75);
+}
+
+.currentInfoContainer {
+  margin: 8px;
+  width: calc(50% - 48px - 96px - 8px);
+  display: flex;
+  height: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.currentInfoElement {
+  color: white;
+  height: 40px;
+  line-height: 40px;
+  flex-grow: 1;
+}
+
+.currentTitle {
+  font-size: 20px;
+}
+
+.currentArtist {
+  font-size: 16px;
+}
+
+.controlsOption {
+  position: absolute;
+  height: 48px;
+  margin-top: 40px;
+}
+
+.controlsOptionImg {
+  width: 48px;
+  height: 48px;
+}
+
+.back {
+  width: 48px;
+  left: 50%;
+  margin-left: calc(-32px - 48px);
+}
+
+.play{
+  width: 48px;
+  left: 50%;
+  margin-left: -24px;
+}
+
+.next {
+  width: 48px;
+  left: 50%;
+  margin-left: 32px;
+}
+
+audio {
+  display: none;
+}
+
+.timeBar {
+  overflow: hidden;
+  position: absolute;
+  background-color: #7e9e46;
+  border-radius: 6px;
+  width: calc(2 * (96px + 48px)); 
+  left: 50%;
+  height: 12px;
+  margin-top: 12px;
+  margin-left: calc(-96px - 48px);
+}
+
+.timeValue {
+  width: 0;
+  border-radius: 8px;
+  height: 100%;
+  background-color: white;
+}

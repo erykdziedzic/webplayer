@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script type="module" src="Player.mjs"></script>
+    <script type="module" src="Song.mjs"></script>
+    <script type="module" src="Main.mjs"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="title">Mp3 Player</div>
+      <div class="container">
+        <div class="menu"><img id="playlist" src="img/playlist.png"/></div>
+        <div class="albumsContainer"></div>
+        <div class="songsList"></div>
+      </div>
+      <div class="controlsTab">
+        <div class="currentInfoContainer">
+          <div class="currentInfoElement currentTitle"></div>
+          <div class="currentInfoElement currentArtist"></div>
+        </div>
+        <div class="timeBar">
+          <div class="timeValue">
+          </div>
+        </div>
+        <div class="controlsOption back">
+          <img src="img/skip-backward.png" class="controlsOptionImg" />
+        </div>
+        <div class="controlsOption play">
+          <img src="img/play.png" class="controlsOptionImg" />
+        </div>
+        <div class="controlsOption next">
+          <img src="img/skip-forward.png" class="controlsOptionImg" />
+        </div>
+      </div>
+     <audio id="audio" controls>
+      <source
+        id="audio_src"
+        type="audio/mp3"
+      />
+     </audio> 
+    </div>
+  </body>
+</html>
