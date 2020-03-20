@@ -20,6 +20,6 @@ package-lock.json
 *.gz
 
 #songs
-static/mp3
-static/upload
+static/mp3/*
+static/upload/*
 playlist.db
